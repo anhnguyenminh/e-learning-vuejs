@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Tutorial</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <!-- <h1>Data Binding</h1> -->
+        <!-- <h2>{{greet('evening')}}</h2> -->
+        <!-- <a v-bind:href="website">Bao Moi</a>
+               <a :href="website">Bao Moi</a>
+        <p>Name: {{name}}</p>
+        <p v-html="websiteTag"></p>
+        <input type="text" v-bind:value="name"/> -->
+        <h1>Event</h1>
+        <p>The number is {{ number }}</p>
+        <button @click="sub(1)">Substract</button>
+        <button v-on:click.once="add(1)">Add</button>
+        <button v-on:dblclick="sub(10)">Substract 10 years</button>
+        <button v-on:dblclick="add(10)">Add 10 years</button>
+        <div id="canvas" v-on:mousemove="updateXY"> {{x}}, {{y}}</div>
+        <a v-on:click.prevent="click" href="htttps://www.thenetninja.co.uk">The net ninja</a>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
