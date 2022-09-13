@@ -1,9 +1,10 @@
 <template>
-    <div v-theme:column="'narrow'" id="show-blog">
+    <div v-theme:column="'wide'" id="show-blog">
         <h1>All Blog Articles</h1>
-        <div v-rainbow class="single-blog" v-for="blog in blogs" :key="blog.id">
-            <h2>{{blog.title}}</h2>
-            <article>{{blog.body}}</article>
+        <input type="text" v-model="search" placeholder="Search blogs" />
+        <div v-rainbow class="single-blog" v-for="blog in filteredBlogs" :key="blog.id">
+            <h2>{{blog.title | to-uppercase}}</h2>
+            <article>{{blog.body | snipped }}</article>
         </div>
     </div>
 </template>
@@ -14,7 +15,8 @@ export default {
 
     data() {
         return {
-            blogs: []
+            blogs: [],
+            search: ''
 
         }
     }, methods: {
@@ -30,7 +32,7 @@ export default {
             .then(function (response) {
                 // handle success
                 console.log(response);
-                a.blogs = response.data.slice(0,10);
+                a.blogs = response.data.slice(0, 10);
             })
             .catch(function (error) {
                 // handle error
@@ -39,6 +41,13 @@ export default {
             .then(function () {
                 // always executed
             });
+    },
+    computed: {
+        filteredBlogs: function() {
+            return this.blogs.filter((blog) => {
+                return blog.title.toLowerCase().match(this.search);
+            });
+        }
     }
 }
 </script>
@@ -50,7 +59,7 @@ export default {
     color: #fff;
 }
 
-#show-blog h1{
+#show-blog h1 {
     text-align: center;
     color: #000;
 }
