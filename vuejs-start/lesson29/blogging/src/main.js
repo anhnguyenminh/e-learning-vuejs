@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+
 // import VueResource from 'vue-resource'
 
 // import axios from 'axios'
@@ -7,11 +8,11 @@ import App from './App.vue'
 // Vue.use(VueResource);
 
 // Custom Directive
-Vue.directive('rainbow', {
-  bind(el, binding, vnode) {
-    el.style.backgroundColor = "#" + Math.random().toString().slice(2, 8);
-  }
-});
+// Vue.directive('rainbow', {
+//   bind(el, binding, vnode) {
+//     el.style.backgroundColor = "#" + Math.random().toString().slice(2, 8);
+//   }
+// });
 
 Vue.directive('theme', {
   bind(el, binding, vnode) {
@@ -29,9 +30,9 @@ Vue.directive('theme', {
 });
 
 // Filter 
-Vue.filter('to-uppercase', function (value) {
-  return value.toUpperCase();
-});
+// Vue.filter('to-uppercase', function (value) {
+//   return value.toUpperCase();
+// });
 
 Vue.filter('snipped', function (value) {
   return value.slice(0, 100) + '...';
