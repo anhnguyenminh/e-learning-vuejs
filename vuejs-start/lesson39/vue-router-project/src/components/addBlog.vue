@@ -68,11 +68,20 @@ export default {
             
             const self = this;
 
-            axios.post('https://jsonplaceholder.typicode.com/posts', {
-                title: self.blog.title,
-                body: self.blog.content,
-                userId: 1
-            })
+            // axios.post('https://jsonplaceholder.typicode.com/posts', {
+            //     title: self.blog.title,
+            //     body: self.blog.content,
+            //     userId: 1
+            // })
+            //     .then((response)=> {
+            //         console.log(response);
+            //         self.submitted = true;
+            //     })
+            //     .catch(function (error) {
+            //         console.log(error);
+            //     });
+
+                axios.post('https://my-blogging-project-7cf63-default-rtdb.firebaseio.com/posts',this.blog)
                 .then((response)=> {
                     console.log(response);
                     self.submitted = true;
